@@ -1,4 +1,4 @@
-module Day2.Part1 where
+module Day2.Part2 where
 
 import Data.List ( foldl' )
 import Data.List.Split ( splitOn )
