@@ -1,4 +1,4 @@
-module Day1.Part2 where
+module Aoc2021.Day1.Part1 where
 
 main :: IO ()
 main = do
@@ -7,6 +7,5 @@ main = do
 
 calculate :: Int -> [Int] -> Int
 calculate _ [] = -1
-calculate last xs | a > last = 1 + calculate a (tail xs)
-                  | otherwise = calculate a (tail xs)
-    where a = sum (take 3 xs)
+calculate last (x:xs) | x > last = 1 + calculate x xs
+                      | otherwise = calculate x xs
