@@ -15,7 +15,7 @@ compute = compute' strategies
 
 compute' :: [Strategy] -> [String] -> Int
 compute' [] _             = 1
-compute' (s:strategies) slopes = aStrategy s slopes 0 * compute' strategies slopes
+compute' (s:strats) slopes = aStrategy s slopes 0 * compute' strats slopes
 
 aStrategy :: Strategy -> [String] -> Int -> Int
 aStrategy _ [] _     = 0
