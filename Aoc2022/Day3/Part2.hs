@@ -8,7 +8,7 @@ main = do
   print $ calculate $ parse input
 
 calculate :: [(String, String, String)] -> Int
-calculate = sum . map (scores . overlap)
+calculate = sum . map (scores . intersect)
 
 scores :: Char -> Int
 scores x
@@ -17,14 +17,14 @@ scores x
   where
     num = ord x
 
-overlap :: (String, String, String) -> Char
-overlap (x : xs, ys, zs)
+intersect :: (String, String, String) -> Char
+intersect (x : xs, ys, zs)
   | elem x ys && elem x zs = x
-  | otherwise = overlap (xs, ys, zs)
+  | otherwise = intersect (xs, ys, zs)
 
 parse :: String -> [(String, String, String)]
-parse = vertupel . lines
+parse = chunked . lines
 
-vertupel :: [String] -> [(String, String, String)]
-vertupel [] = []
-vertupel (x:y:z:zs) = (x, y, z): vertupel zs 
+chunked :: [String] -> [(String, String, String)]
+chunked [] = []
+chunked (x:y:z:zs) = (x, y, z): chunked zs 
