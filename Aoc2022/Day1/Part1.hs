@@ -15,4 +15,3 @@ parse x = map (map readInt) $ splitOn [""] $ lines x
 
 readInt :: String -> Int 
 readInt = read
-

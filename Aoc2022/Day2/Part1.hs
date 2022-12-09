@@ -23,7 +23,7 @@ scores (theirs,mine)
 parse :: String -> [(Char, Char)]
 parse x = map vertupel $ lines x
 
-vertupel :: String -> (Char, Char)
+vertupel :: [a] -> (a, a)
 vertupel x = (x!!0, x!!2)
 
 
